@@ -1,8 +1,17 @@
 development:
   adapter: postgresql
   database: twist_dev
+  username: twist
+  password: <%= ENV.fetch("DB_PASS") %>
+  host: <%= ENV.fetch("DB_HOST") %>
+  port: <%= ENV.fetch("DB_PORT") { 5432 } %>
+  schema_search_path: twist,public
 
 test:
   adapter: postgresql
   database: twist_test
-
+  username: twist
+  password: <%= ENV.fetch("DB_PASS") %>
+  host: <%= ENV.fetch("DB_HOST") %>
+  port: <%= ENV.fetch("DB_PORT") { 5432 } %>
+  schema_search_path: twist,public

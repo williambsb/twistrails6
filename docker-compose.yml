@@ -1,0 +1,25 @@
+services:
+  twist:
+    build: 
+      context: . 
+      dockerfile: Dockerfile 
+    container_name: twist
+    ports: 
+      - "3022:3022"
+    volumes:
+      - .:/usr/src/app
+      - bundle:/usr/local/bundle
+    networks:
+       - postgres-net
+  redis: 
+    image: redis
+    ports:
+      - "6379:6379"
+    networks: 
+      - "postgres-net"
+volumes:
+  bundle: 
+
+networks:
+  postgres-net:
+    driver: "bridge"
