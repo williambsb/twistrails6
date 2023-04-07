@@ -59,3 +59,4 @@ RSpec.configure do |config|
 
   config.include Warden::Test::Helpers, type: :feature
 end
+Capybara.app_host = "http://lvh.me"

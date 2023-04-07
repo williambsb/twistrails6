@@ -43,5 +43,6 @@ module Twist
     config.assets.enabled = true
 
     config.cache_store = :redis_store
+    config.hosts << "lvh.me"
   end
 end
